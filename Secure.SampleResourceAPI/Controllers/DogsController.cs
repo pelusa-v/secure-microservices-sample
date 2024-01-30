@@ -10,22 +10,23 @@ namespace Secure.SampleResourceAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CatsController : ControllerBase
+    public class DogsController : ControllerBase
     {
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "CatsScope")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "DogsScope")]
         [HttpGet]
-        public ActionResult<Cat> ListCats()
+        public ActionResult<Dog> ListCats()
         {
-            var cats = new List<Cat>()
+            var dogs = new List<Dog>()
             {
-                new (){ Name = "Tom"},
-                new (){ Name = "Lu"},
+                new (){ Name = "Boby"},
+                new (){ Name = "Rito"},
+                new (){ Name = "Rocky"},
             };
-            return Ok(cats);
+            return Ok(dogs);
         }
     }
 
-    public class Cat
+    public class Dog
     {
         public string Name { get; set; }
     }
